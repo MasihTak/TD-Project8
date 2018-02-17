@@ -1,0 +1,209 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    font-family: 'Roboto Slab', serif;
+    font-weight: 300;
+    color: #111;
+    background: #EDEFF0 url('svgs/background.svg');
+}
+
+#container {
+    max-width: 960px;
+    background: #FFF;
+    margin: 0 auto;
+    height: 100%; /* new line */
+}
+
+p {
+    max-width: 350px;
+    margin: 35px auto 0;
+    line-height: 2em;
+    text-align: left;
+}
+
+span {
+    display: block;
+}
+
+span, footer {
+    color: #BA8058;
+}
+
+a {
+    text-decoration: none;
+    color: #39ADD1;
+    font-weight: 700;
+}
+
+a:hover {
+    color: #111;
+}
+
+/* NavBar */
+
+header {
+    padding-top: 10px;
+}
+
+header nav {
+    padding-bottom: 50px;
+    text-align: left;
+}
+
+header nav ul li {
+    display: inline-block;
+    margin-right: 20px;
+    color: #40ADCF;
+    font-weight: 700;
+}
+
+.nav-icons {
+    width: 20px;
+    height: 15px;
+    fill: #40ADCF;
+}
+
+nav ul li, .nav-icons {
+    transition: 0.3s ease-out;
+}
+
+nav ul li:hover, nav ul li:hover .nav-icons {
+    color: #265EB3;
+    fill: #265EB3;
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+
+/* Logo */
+#logo {
+    width: 140px;
+    height: 120px;
+}
+
+.st1 {
+    display: none;
+}
+
+.paw {
+    transition: transform 0.5s ease-out;
+    transform-origin: 50% 50%;
+    perspective: 500px;
+    transform: rotate3d(-1, 1, 0, 30deg);
+}
+
+#logo:hover .paw {
+    /* transform: rotate3d(0, 1, 0, 180deg); */
+    transform: matrix3d(1,0,0.00,0,0.00,1,0.00,0,0,0,1,0,0,0,180,1);
+}
+
+main {
+    padding-top: 50px;
+}
+
+main h2 {
+    font-size: 28px;
+}
+
+/*** DOGS ***/
+.items li {
+    display: inline-block;
+}
+
+#sable, #fawn, #red, #stone {
+    width: 200px;
+    height: 180px;
+    margin-left: 20px;
+}
+
+/* Fixed colors */
+.nose_and_eyes {
+    fill: #2D3339;
+}
+
+.brows {
+    fill: #DA8058;
+}
+
+#sable use {
+    fill: #B97F5B;
+}
+
+#fawn use {
+    fill: #E9AA82;
+}
+
+#red use {
+    fill: #834B29;
+}
+
+#stone use {
+    fill: #52595F;
+}
+
+/* Dogs animation */
+@keyframes slide-up {
+    50% {
+        transform: translate3d(0, -10px, 0);
+    }
+    80% {
+        transform: translate3d(0, 10px, 0);
+    }
+    100% {
+        transform: translate3d(0, 0, 0);
+        opacity: 1;
+    }
+}
+
+#sable use, #fawn use, #red use, #stone use {
+    transform-origin: center center;
+    transition: transform 0.2s ease-in-out;
+}
+
+.items li {
+    transform: translate3d(0, 180px, 0);
+    animation: slide-up 5s ease-out forwards;
+    opacity: 0;
+}
+
+.items li:nth-of-type(1) {
+    animation-delay: 0s;
+}
+
+.items li:nth-of-type(2) {
+    animation-delay: 0.5s;
+}
+
+.items li:nth-of-type(3) {
+    animation-delay: 0.8s, 2s;
+}
+
+.items li:nth-of-type(4) {
+    animation-delay: 1s, 2.4s;
+}
+
+#sable use:hover, #fawn use:hover, #red use:hover, #stone use:hover {
+    transform: rotateZ(-10deg);
+}
+
+footer {
+    width: 100%;
+    margin-top: 100px;
+    padding-bottom: 30px;
+}
+
+/* MEDIA QUERIES */
+
+@media (min-width: 425px) {
+    .logo-text {
+        display: none;
+    }
+    .st1 {
+        display: block;
+    }
+}
